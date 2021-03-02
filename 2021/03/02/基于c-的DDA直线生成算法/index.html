@@ -16,10 +16,10 @@
 <meta property="og:description" content="基于c#的DDA直线生成算法算法思想​        这里给出直线斜率0&lt;m&lt;1的情况，其他情况都可以转化为这一种。对于给定始末端点(x0,y0),(x1,y1)的一个直线段，可以确定直线斜率m&#x3D;(y1-y0)&#x2F;(x1-x0)。根据直线方程y&#x3D;mx+b可以推出，每当x自增1，y就要自增m。最后再把y取整数（四舍五入，或者上下取整）即可。">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/图形学图片.PNG">
-<meta property="og:image" content="http://example.com/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/1.png">
-<meta property="og:image" content="http://example.com/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/2.png">
+<meta property="og:image" content="http://example.com/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/1.PNG">
+<meta property="og:image" content="http://example.com/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/2.PNG">
 <meta property="article:published_time" content="2021-03-02T12:12:00.000Z">
-<meta property="article:modified_time" content="2021-03-02T12:24:50.971Z">
+<meta property="article:modified_time" content="2021-03-02T12:31:41.264Z">
 <meta property="article:author" content="pikaccc">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/图形学图片.PNG">
@@ -186,10 +186,10 @@
 
 <p>可以分为上述6种情况。1为我们熟悉的0&lt;m&lt;1的情形。3和6分别为垂线和水平线的情况，对于这两种情况直接让x或y自增1即可。</p>
 <p>对于2这种斜率大于1的情况，只需要做一次直线关于y=x对称即可。即x与y互换。</p>
-<img src="/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/1.png" alt="image-20210124162819797" style="zoom:30%;">
+<img src="/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/1.PNG" alt="image-20210124162819797" style="zoom:30%;">
 
 <p>对于5着一种情况，需要做一次直线关于x轴对称即可。即y坐标取负。</p>
-<img src="/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/2.png" alt="image-20210124162954814" style="zoom:50%;">
+<img src="/2021/03/02/%E5%9F%BA%E4%BA%8Ec-%E7%9A%84DDA%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/2.PNG" alt="image-20210124162954814" style="zoom:50%;">
 
 <p>对于4这一种情况，其实就是2，5情形的叠加。先做一次关于x轴的坐标对称变换，在做一次关于y=x的坐标变换。</p>
 <p>上述这几种情况本质上都是变成了第一种0&lt;m&lt;1的情形。方便代码实现。</p>
